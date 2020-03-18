@@ -17,3 +17,4 @@ Google velog로 올려진 React Native Instagram은 구버전이라서, Navigati
   8. 탭을 클릭했을 때, swipe기능을 사용하려면, createMaterialTopTabNavigator를 사용해야한다. const로 호출되는 메소드명이 바뀌고, 새로운 속성들을 사용할 수 있다.(showIcon 기본 true였는데, 바꾸고 입력필수항목이 되었음)  
   9. native-base를 통해 ios, Android의 native환경을 좀 더 효율적으로 만들 수 있도록 여러 API를 제공한다.  
   10. native-base 자체적으로 오류가 있었고, npm i --save-exact native-base@2.13.8를 통해 해결가능하다.  
+  11. 본래, Navigation의 header를 안보이게 하면서, statusbar가 overlap되는경우, statusbar의 tan.. 뭐시기 속성을 true해주면 되는데, android라 그런지 안처먹음. 그래서 status높이만큼 margin값을 주었다.

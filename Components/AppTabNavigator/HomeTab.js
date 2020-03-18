@@ -1,21 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { Container, Content, Icon, Thumbnail } from 'native-base';
+import { StyleSheet, Text, View, ScrollView, StatusBar } from 'react-native';
+import { Container, Content, Icon, Thumbnail, Header, Left, Right, Body } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
 import CardComponent from '../CardComponent.js';
-
 export default class HomeTab extends React.Component {
   state = {
     isLoading : true,
     feeds : [],
     followings : [],
   }
-
   render(){
     const { feeds, isLoading, followings } = this.state;
     return (
       <Container style={styles.container}>
+        <Header style={{ backgroundColor : '#fff' }}>
+          <Left style={{ flex : 1 }}>
+            <Ionicons name='ios-camera' size={32} style={{ paddingLeft : 10 }} />
+          </Left>
+          <Body style={{ alignItems : 'center', flex : 4 }}>
+            <Text>Instagram</Text>
+          </Body>
+          <Right style={{ flex : 1 }}>
+            <Ionicons name='ios-send' size={32} style={{ paddingRight : 10 }} />
+          </Right>
+        </Header>
         <View style={{ height : 90 }}>
           <View style={{ flex : 1, justifyContent : 'space-between', padding : 7, flexDirection : 'row', alignItems : 'center' }}>
             <Text style={{ fontWeight : 'bold' }}>Stories</Text>
@@ -38,7 +47,7 @@ export default class HomeTab extends React.Component {
                 return <Thumbnail 
                   key={index} 
                   source={{ uri : `https://steemitimages.com/u/${res.following}/avatar` }}
-                  style ={{ marginHorizontal : 1, borderColor : '#666666', borderWidth : 2 }}
+                  style ={{ marginHorizontal : 5, borderColor : '#666666', borderWidth : 2 }}
                   />
               }) }
             </ScrollView>

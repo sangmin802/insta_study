@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,27 +10,40 @@ export default class App extends React.Component {
   render(){
     return (
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerTitleAlign : 'center',
-          }}
-        >
-          <Stack.Screen 
-            name="Main"
-            component={MainScreen}
-            options={{
-              title : 'Instagram',
-              headerLeft : () => (<Ionicons name='ios-camera' size={32} style={{ paddingLeft : 10 }} />),
-              headerRight : () => (<Ionicons name='ios-send' size={32} style={{ paddingRight : 10 }} />)
+        <View style={this.statusBar()}>
+          <Stack.Navigator
+            screenOptions={{
+              headerTitleAlign : 'center',
             }}
-          />
-        </Stack.Navigator>
+          >
+            <Stack.Screen 
+              name="Main"
+              component={MainScreen}
+              options={{
+                headerShown : false
+              }}
+            />
+          </Stack.Navigator>
+        </View>
       </NavigationContainer>
     );
   }
+
+  statusBar(){
+    if(Platform.OS === 'android'){
+      return {
+        marginTop : StatusBar.currentHeight,
+        flex : 1
+      }
+    }
+    return {
+      flex : 1
+    }
+  }  
 }
 
 const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
+
 });
