@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import MainScreen from './Components/MainScreen.js';
+import DetailScreen from './Components/DetailScreen.js';
 
 export default class App extends React.Component {
   render(){
@@ -20,7 +21,14 @@ export default class App extends React.Component {
               name="Main"
               component={MainScreen}
               options={{
-                headerShown : false
+                headerShown : false,
+              }}
+            />
+            <Stack.Screen 
+              name="Detail"
+              component={DetailScreen}
+              options={{
+                headerShown : false,
               }}
             />
           </Stack.Navigator>

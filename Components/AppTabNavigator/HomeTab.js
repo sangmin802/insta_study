@@ -61,7 +61,7 @@ export default class HomeTab extends React.Component {
           </View>
           :
           <Content>
-            {feeds.map((feed, index) => <CardComponent key={index} data={feed} />)}
+            {feeds.map((feed, index) => <CardComponent key={index} data={feed} navigation={this.props.navigation} />)}
           </Content>
         }
       </Container>
