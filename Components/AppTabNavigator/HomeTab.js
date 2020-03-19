@@ -19,7 +19,7 @@ export default class HomeTab extends React.Component {
             <Ionicons name='ios-camera' size={32} style={{ paddingLeft : 10 }} />
           </Left>
           <Body style={{ alignItems : 'center', flex : 4 }}>
-            <Text>Instagram</Text>
+            <Text style={{ fontSize : 20 }}>Instagram</Text>
           </Body>
           <Right style={{ flex : 1 }}>
             <Ionicons name='ios-send' size={32} style={{ paddingRight : 10 }} />
